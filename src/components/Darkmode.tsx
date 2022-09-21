@@ -6,13 +6,12 @@ function Darkmode() {
   const dark = colorScheme === 'dark';
 
   return (
-    <ActionIcon
-      variant="outline"
-      color={dark ? 'yellow' : 'blue'}
-      onClick={() => toggleColorScheme()}
-      title="Toggle color scheme"
-    >
-      {dark ? <IconSun size={18} /> : <IconMoonStars size={18} />}
+    <ActionIcon variant="default" onClick={() => toggleColorScheme()} size={30}>
+      {colorScheme === 'dark' ? (
+        <IconSun size={16} />
+      ) : (
+        <IconMoonStars size={16} />
+      )}
     </ActionIcon>
   );
 }

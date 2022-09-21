@@ -14,6 +14,7 @@ import {
   MediaQuery,
   Burger,
   useMantineTheme,
+  Group,
 } from '@mantine/core';
 
 function App() {
@@ -34,14 +35,6 @@ function App() {
         withNormalizeCSS
       >
         <AppShell
-          styles={{
-            main: {
-              background:
-                theme.colorScheme === 'dark'
-                  ? theme.colors.dark[8]
-                  : theme.colors.gray[0],
-            },
-          }}
           navbarOffsetBreakpoint="sm"
           asideOffsetBreakpoint="sm"
           navbar={
@@ -68,31 +61,26 @@ function App() {
           }
           header={
             <Header height={70} p="md">
-              <div
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  height: '100%',
-                }}
-              >
-                <MediaQuery largerThan="sm" styles={{ display: 'none' }}>
-                  <Burger
-                    opened={opened}
-                    onClick={() => setOpened((o) => !o)}
-                    size="sm"
-                    color={theme.colors.gray[6]}
-                    mr="xl"
-                  />
-                </MediaQuery>
-
-                <Text>Application header</Text>
-              </div>
+              <Group sx={{ height: '100%' }} position="apart">
+                <Group>
+                  <MediaQuery largerThan="sm" styles={{ display: 'none' }}>
+                    <Burger
+                      opened={opened}
+                      onClick={() => setOpened((o) => !o)}
+                      size="sm"
+                      color={theme.colors.gray[6]}
+                      mr="xl"
+                    />
+                  </MediaQuery>
+                  <Text>Application header</Text>
+                </Group>
+                <Darkmode />
+              </Group>
             </Header>
           }
         >
           <Text>Resize app to see responsive navbar in action</Text>
         </AppShell>
-        <Darkmode />
       </MantineProvider>
     </ColorSchemeProvider>
   );
