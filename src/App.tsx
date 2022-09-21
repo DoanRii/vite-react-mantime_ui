@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import Darkmode from './components/Darkmode';
+import Logo from './assets/passmanlogo.png';
+import Logodark from './assets/passmanlogo-dark.png';
 import {
   MantineProvider,
   ColorSchemeProvider,
@@ -77,12 +79,12 @@ function App() {
                   {colorScheme === 'dark' ? (
                     <img
                       style={{ width: '10px', display: 'flex' }}
-                      src="./assets/passmanlogo.png"
+                      src={Logo}
                     ></img>
                   ) : (
                     <img
                       style={{ width: '10px', display: 'flex' }}
-                      src="./assets/passmanlogo-dark.png"
+                      src={Logodark}
                     ></img>
                   )}
                 </Group>
